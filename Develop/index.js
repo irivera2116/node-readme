@@ -27,8 +27,32 @@ inquirer
             name: 'Installation',
             message: 'Add installation intstructions.',
         },
-
-
+    {
+        type: 'input',
+        name: 'Usage',
+        message: 'How is this project used?',
+    },
+    {
+        type: 'input',
+        name: 'License',
+        message: 'What is the license used in this project?',
+    },
+    {
+        type: 'list',
+        name: 'Contributors',
+        message: 'List any contributors to this code.',
+    },
+    {
+        type: 'input',
+        name: 'Tests',
+        message: '[]',
+    },
+    {
+        type: 'input',
+        name: 'Questions',
+        message: '[]',
+    },
+    
     ])
     .then((data) => {
         const filename = `${data.name.toLowerCase().split(' ').join('')}.json`;
