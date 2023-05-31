@@ -33,38 +33,35 @@ inquirer
         message: 'How is this project used?',
     },
     {
-        type: 'input',
+        type: 'list',
         name: 'License',
         message: 'What is the license used in this project?',
+        choices: ['Apache 2.0', 'IPL 1.0', 'MIT', 'N/A'],
     },
     {
-        type: 'list',
+        type: 'input',
         name: 'Contributors',
         message: 'List any contributors to this code.',
     },
     {
         type: 'input',
-        name: 'Tests',
-        message: '[]',
+        name: 'Test',
+        message: 'What command do you want to use to run a test?',
     },
     {
         type: 'input',
-        name: 'Questions',
-        message: '[]',
+        name: 'Github',
+        message: 'What is your github username?',
     },
     
     ])
-    .then((data) => {
-        const filename = `${data.name.toLowerCase().split(' ').join('')}.json`;
-
-        fs.writeFile(filename, JSON.stringify(data, null, '\t'), (err) =>
-            err ? console.log(err) : console.log('Success!')
-        );
-    });
-
+   
 // TODO: Create a function to write README file
-function writeToFile(fileName, data) { }
-
+function writeToFile(fileName, data) { 
+fs.writeFile9'./sample/' + fileName, data, (err) =>
+err ? console.log(err) : console.log('Congrats!' + fileName + 'generated!')
+);
+}
 // TODO: Create a function to initialize app
 function init() { }
 
