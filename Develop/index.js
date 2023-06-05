@@ -4,10 +4,7 @@ const fs = require("fs");
 const generateMarkdown = require('./utils/generateMarkdown')
 
 // TODO: Create an array of questions for user input
-const questions = [];
-
-inquirer
-    .prompt([
+const questions = [
         {
             type: 'input',
             name: 'Title',
@@ -28,46 +25,47 @@ inquirer
             name: 'Installation',
             message: 'Add installation intstructions.',
         },
-    {
-        type: 'input',
-        name: 'Usage',
-        message: 'How is this project used?',
-    },
-    {
-        type: 'list',
-        name: 'License',
-        message: 'What is the license used in this project?',
-        choices: ['Apache 2.0', 'IPL 1.0', 'MIT', 'N/A'],
-    },
-    {
-        type: 'input',
-        name: 'Contributors',
-        message: 'List any contributors to this code.',
-    },
-    {
-        type: 'input',
-        name: 'Test',
-        message: 'What command do you want to use to run a test?',
-    },
-    {
-        type: 'input',
-        name: 'Github',
-        message: 'What is your github username?',
-    },
-    
-    ])
-   
+        {
+            type: 'input',
+            name: 'Usage',
+            message: 'How is this project used?',
+        },
+        {
+            type: 'list',
+            name: 'License',
+            message: 'What is the license used in this project?',
+            choices: ['Apache 2.0', 'IPL 1.0', 'MIT', 'N/A'],
+        },
+        {
+            type: 'input',
+            name: 'Contributors',
+            message: 'List any contributors to this code.',
+        },
+        {
+            type: 'input',
+            name: 'Test',
+            message: 'What command do you want to use to run a test?',
+        },
+        {
+            type: 'input',
+            name: 'Github',
+            message: 'What is your github username?',
+        },
+
+    ];
+
 // TODO: Create a function to write README file
-function writeToFile(fileName, data) { 
-fs.writeFile9('./folder.md/' + fileName, data, (err) =>
-err ? console.log(err) : console.log('Congrats!' + fileName + 'generated!'));
+function writeToFile(fileName, data) {
+    fs.writeFile('./readme_folder/' + fileName, data, (err) =>
+        err ? console.log(err) : console.log('Congrats!' + fileName + 'generated!'));
 }
 
 // TODO: Create a function to initialize app
-function init() { 
+function init() {
     inquirer.prompt(questions)
-    .then(function(data) {writeToFile('README.md'), generateMarkdown(data);
-})
+        .then(function (data) {
+            writeToFile('README.md', generateMarkdown(data));
+        })
 }
 
 // Function call to initialize app

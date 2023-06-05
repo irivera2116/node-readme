@@ -1,8 +1,8 @@
 // TODO: Create a function that returns a license badge based on which license is passed in
 // If there is no license, return an empty string
 function renderLicenseBadge(license) {
-  if(license !== 'No License') {
-    return[`[![License: MIT](https://img.shields.io/badge/License-MIT-red.svg)]`]
+  if (license !== 'No License') {
+    return [`[![License: MIT](https://img.shields.io/badge/License-MIT-red.svg)]`]
   }
   return ``
 }
@@ -12,8 +12,8 @@ function renderLicenseBadge(license) {
 function renderLicenseLink(license) {
   if (license !== 'No License') {
     return `${renderLicenseBadge(license)}(https://opensource.org/licenses/MIT)`
-}
-return ``
+  }
+  return ``
 }
 
 // TODO: Create a function that returns the license section of README
@@ -67,7 +67,7 @@ ${renderLicenseSection(data.license)}
 
 ## Tests <a name="tests"></a>
 
-  To run tests, you need to run the following command: ${data.test}
+  To run tests, run the command: ${data.test}
 
 `;
 }
